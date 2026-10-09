@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mike Asesorías y Diseños · Mi Control Freelance</title>
+  <meta name="theme-color" content="#081221" />
+  <link rel="icon" type="image/png" href="assets/logo-mike-control.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="auth-mode">
+  <section id="authScreen" class="auth-screen">
+    <div class="auth-panel">
+      <div class="auth-brand">
+        <img src="assets/logo-mike-control.png" alt="Mike Asesorías y Diseños · Mi Control Freelance" class="auth-logo">
+      </div>
+      <form id="authForm" class="auth-form">
+        <label class="auth-field">
+          <span class="auth-field-label">Correo</span>
+          <div class="auth-input-wrap">
+            <span class="auth-input-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+            </span>
+            <input id="authEmail" type="email" autocomplete="email" required placeholder="correo@ejemplo.com">
+          </div>
+        </label>
+        <label class="auth-field">
+          <span class="auth-field-label">Contraseña</span>
+          <div class="auth-input-wrap password-field">
+            <span class="auth-input-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            </span>
+            <input id="authPassword" type="password" autocomplete="current-password" required minlength="6" placeholder="Escribe tu contraseña">
+            <button id="togglePasswordBtn" type="button" class="password-toggle" aria-label="Mostrar contraseña" title="Mostrar contraseña">
+              <svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6S2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="2.5"/></svg>
+              <svg class="eye-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3l18 18"/><path d="M10.6 6.2A9.5 9.5 0 0 1 12 6c6 0 9.5 6 9.5 6a16 16 0 0 1-2.1 2.7"/><path d="M6.2 6.2C3.9 7.8 2.5 12 2.5 12s3.5 6 9.5 6a9.7 9.7 0 0 0 3.1-.5"/><path d="M9.9 9.9A3 3 0 0 0 14.1 14.1"/></svg>
+            </button>
+          </div>
+        </label>
+        <div id="authMessage" class="auth-message"></div>
+        <button id="loginBtn" type="submit" class="btn primary auth-main-btn">Iniciar sesión</button>
+        <div class="auth-secondary-row">
+          <button id="resetPasswordBtn" type="button" class="auth-link">Recuperar acceso</button>
+          <button id="registerBtn" type="button" class="auth-link auth-link-strong">Registrarme</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <div id="appShell" class="app-shell app-hidden">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="assets/logo-mike-control.png" alt="Mike Asesorías y Diseños · Mi Control Freelance" class="sidebar-logo">
+      </div>
+      <div class="sidebar-label">GESTIÓN</div>
+      <nav>
+        <button class="nav-btn active" data-view="dashboard"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="10" width="8" height="11" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/></svg></span><span>Resumen</span></button>
+        <button class="nav-btn" data-view="today"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span><span>Hoy</span></button>
+        <button class="nav-btn" data-view="projects"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z"/></svg></span><span>Proyectos</span></button>
+        <button class="nav-btn" data-view="clients"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2"/><path d="M16 14a5 5 0 0 1 5 5"/></svg></span><span>Clientes</span></button>
+        <button class="nav-btn" data-view="finances"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg></span><span>Finanzas</span></button>
+        <button class="nav-btn" data-view="tasks"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l2 2 4-4"/><rect x="4" y="4" width="16" height="16" rx="2"/></svg></span><span>Tareas</span></button>
+        <button class="nav-btn" data-view="calendar"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></span><span>Agenda</span></button>
+      </nav>
+
+      <div class="sidebar-session">
+        <div class="session-user-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+        </div>
+        <div class="session-user-copy">
+          <span class="session-label">SESIÓN INICIADA</span>
+          <strong id="userEmail" title=""></strong>
+        </div>
+      </div>
+
+      <button id="logoutBtn" class="nav-btn nav-logout" type="button">
+        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/><path d="M13 4h5a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-5"/></svg></span>
+        <span>Cerrar sesión</span>
+      </button>
+
+      <div class="sidebar-footer"><div id="syncDot" class="status-dot"></div><div><strong id="syncTitle">Firebase</strong><span id="syncText">C2.0 · esperando sesión</span></div></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><p class="eyebrow">CENTRO DE OPERACIONES</p><h1 id="viewTitle">Resumen</h1><p id="viewSubtitle" class="view-subtitle">Organiza tus proyectos y mantén tus entregas bajo control.</p></div>
+        <div class="top-actions">
+          <button id="quickTaskBtn" class="btn secondary"><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14"/><rect x="4" y="4" width="16" height="16" rx="3"/></svg></span>Tarea rápida</button>
+          <button id="newProjectBtn" class="btn primary"><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14"/><path d="M5 8a2 2 0 0 1 2-2h3l2 2h5a2 2 0 0 1 2 2v6a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z"/></svg></span>Nuevo proyecto</button>
+        </div>
+      </header>
+
+      <section id="dashboardView" class="view active"></section>
+      <section id="todayView" class="view"></section>
+      <section id="projectsView" class="view"></section>
+      <section id="clientsView" class="view"></section>
+      <section id="financesView" class="view"></section>
+      <section id="tasksView" class="view"></section>
+      <section id="calendarView" class="view"></section>
+      <section id="projectDetailView" class="view"></section>
+    </main>
+  </div>
+
+  <div id="modalBackdrop" class="modal-backdrop hidden"><div id="modal" class="modal"></div></div>
+
+  <template id="projectFormTemplate">
+    <form id="projectForm" class="form-grid">
+      <div class="modal-head"><div><p class="eyebrow">GESTIÓN DE PROYECTO</p><h2 id="projectFormTitle">Crear proyecto</h2></div><button type="button" class="icon-btn" data-close aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+      <label>Nombre del proyecto<input name="name" required placeholder="Ej. Página web Constructora ABC"></label>
+      <label>Cliente<input name="client" placeholder="Nombre del cliente"></label>
+      <div class="two-cols"><label>Fecha de inicio<input type="date" name="startDate" required></label><label>Fecha de entrega<input type="date" name="dueDate" required></label></div>
+      <div class="two-cols">
+        <label>Prioridad<select name="priority"><option value="alta">Alta</option><option value="media" selected>Media</option><option value="baja">Baja</option></select></label>
+        <label>Estado del proyecto<select name="workflowStatus"><option value="planificacion">Planificación</option><option value="en_curso" selected>En curso</option><option value="esperando_cliente">Esperando cliente</option><option value="revision">En revisión</option><option value="correcciones">Correcciones</option><option value="pausado">Pausado</option><option value="entregado">Entregado</option><option value="finalizado">Finalizado</option><option value="cancelado">Cancelado</option></select></label>
+      </div>
+      <label>Valor del proyecto<input type="number" name="value" min="0" step="1000" placeholder="0"></label>
+      <label>Notas del proyecto<textarea name="notes" rows="4" placeholder="Alcance, acuerdos, entregables y detalles importantes..."></textarea></label>
+      <div class="modal-actions"><button type="button" class="btn secondary" data-close>Cancelar</button><button class="btn primary" id="projectSubmitBtn">Guardar proyecto</button></div>
+    </form>
+  </template>
+
+  <template id="milestoneFormTemplate">
+    <form id="milestoneForm" class="form-grid">
+      <div class="modal-head"><div><p class="eyebrow">ENTREGABLE / FASE</p><h2 id="milestoneFormTitle">Crear entregable</h2></div><button type="button" class="icon-btn" data-close aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+      <label>Nombre del entregable<input name="title" required placeholder="Ej. Primera versión funcional"></label>
+      <div class="two-cols"><label>Fecha de entrega<input type="date" name="dueDate" required></label><label>Estado<select name="status"><option value="pendiente">Pendiente</option><option value="en_proceso">En proceso</option><option value="revision">En revisión</option><option value="completado">Completado</option></select></label></div>
+      <label>Descripción / criterio de entrega<textarea name="notes" rows="3" placeholder="Qué debe quedar listo para considerar esta fase entregada"></textarea></label>
+      <div class="modal-actions"><button type="button" class="btn secondary" data-close>Cancelar</button><button class="btn primary" id="milestoneSubmitBtn">Guardar entregable</button></div>
+    </form>
+  </template>
+
+  <template id="taskFormTemplate">
+    <form id="taskForm" class="form-grid">
+      <div class="modal-head"><div><p class="eyebrow">GESTIÓN DE TAREA</p><h2 id="taskFormTitle">Agregar tarea</h2></div><button type="button" class="icon-btn" data-close aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+      <label>Tarea<input name="title" required placeholder="Ej. Crear módulo de inventario"></label>
+      <label>Proyecto<select name="projectId" id="taskProjectSelect"></select></label>
+      <label>Entregable / fase<select name="milestoneId" id="taskMilestoneSelect"><option value="">Sin entregable específico</option></select></label>
+      <div class="two-cols"><label>Fecha límite<input type="date" name="dueDate" required></label><label>Prioridad<select name="priority"><option value="alta">Alta</option><option value="media" selected>Media</option><option value="baja">Baja</option></select></label></div>
+      <div class="two-cols"><label>Estado<select name="status" id="taskStatusSelect"><option value="pendiente">Pendiente</option><option value="en_proceso">En proceso</option><option value="bloqueada">Bloqueada</option><option value="completada">Completada</option></select></label><label>Motivo del bloqueo<input name="blockerReason" id="blockerReasonInput" placeholder="Ej. Esperando información del cliente"></label></div>
+      <label>Notas / contexto para retomar<textarea name="notes" rows="3" placeholder="Detalles para retomar esta tarea sin perder contexto"></textarea></label>
+      <div class="modal-actions"><button type="button" class="btn secondary" data-close>Cancelar</button><button class="btn primary" id="taskSubmitBtn">Guardar tarea</button></div>
+    </form>
+  </template>
+
+
+  <template id="clientFormTemplate">
+    <form id="clientForm" class="form-grid">
+      <div class="modal-head"><div><p class="eyebrow">CLIENTE</p><h2 id="clientFormTitle">Crear cliente</h2></div><button type="button" class="icon-btn" data-close aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+      <label>Nombre / contacto principal<input name="name" required placeholder="Ej. Andrea Gómez"></label>
+      <label>Empresa<input name="company" placeholder="Ej. Constructora ABC"></label>
+      <div class="two-cols"><label>WhatsApp / teléfono<input name="phone" placeholder="Ej. 300 000 0000"></label><label>Correo<input type="email" name="email" placeholder="cliente@correo.com"></label></div>
+      <label>Notas del cliente<textarea name="notes" rows="3" placeholder="Preferencias, acuerdos, datos importantes..."></textarea></label>
+      <div class="modal-actions"><button type="button" class="btn secondary" data-close>Cancelar</button><button class="btn primary" id="clientSubmitBtn">Guardar cliente</button></div>
+    </form>
+  </template>
+
+  <template id="paymentFormTemplate">
+    <form id="paymentForm" class="form-grid">
+      <div class="modal-head"><div><p class="eyebrow">PAGO / ABONO</p><h2>Registrar pago</h2></div><button type="button" class="icon-btn" data-close aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+      <label>Proyecto<select name="projectId" id="paymentProjectSelect"></select></label>
+      <div class="two-cols"><label>Valor recibido<input type="number" name="amount" min="1" step="1000" required placeholder="0"></label><label>Fecha<input type="date" name="date" required></label></div>
+      <div class="two-cols"><label>Método<select name="method"><option>Transferencia</option><option>Efectivo</option><option>Nequi</option><option>Daviplata</option><option>Otro</option></select></label><label>Referencia<input name="reference" placeholder="Opcional"></label></div>
+      <label>Nota<textarea name="notes" rows="2" placeholder="Ej. Segundo abono del proyecto"></textarea></label>
+      <div class="modal-actions"><button type="button" class="btn secondary" data-close>Cancelar</button><button class="btn primary">Registrar pago</button></div>
+    </form>
+  </template>
+
+  <template id="reviewFormTemplate">
+    <form id="reviewForm" class="form-grid">
+      <div class="modal-head"><div><p class="eyebrow">REVISIÓN DEL CLIENTE</p><h2>Registrar observación</h2></div><button type="button" class="icon-btn" data-close aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+      <label>Título<input name="title" required placeholder="Ej. Correcciones primera entrega"></label>
+      <div class="two-cols"><label>Fecha<input type="date" name="date" required></label><label>Canal<select name="source"><option>WhatsApp</option><option>Correo</option><option>Reunión</option><option>Llamada</option><option>Otro</option></select></label></div>
+      <label>Observaciones<textarea name="feedback" rows="4" required placeholder="Escribe exactamente qué pidió o comentó el cliente..."></textarea></label>
+      <label>Estado<select name="status"><option value="pendiente">Pendiente</option><option value="en_proceso">En proceso</option><option value="resuelta">Resuelta</option></select></label>
+      <div class="modal-actions"><button type="button" class="btn secondary" data-close>Cancelar</button><button class="btn primary">Guardar revisión</button></div>
+    </form>
+  </template>
+
+  <template id="resourceFormTemplate">
+    <form id="resourceForm" class="form-grid">
+      <div class="modal-head"><div><p class="eyebrow">RECURSO DEL PROYECTO</p><h2>Agregar enlace</h2></div><button type="button" class="icon-btn" data-close aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+      <div class="two-cols"><label>Tipo<select name="type"><option>Google Drive</option><option>GitHub</option><option>Firebase</option><option>Canva</option><option>Hosting</option><option>Documento</option><option>Otro</option></select></label><label>Nombre<input name="label" required placeholder="Ej. Repositorio principal"></label></div>
+      <label>Enlace<input type="url" name="url" required placeholder="https://..."></label>
+      <label>Nota<input name="notes" placeholder="Opcional"></label>
+      <div class="modal-actions"><button type="button" class="btn secondary" data-close>Cancelar</button><button class="btn primary">Guardar recurso</button></div>
+    </form>
+  </template>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
